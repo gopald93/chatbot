@@ -1,0 +1,172 @@
+@font-face {
+    font-family: 'montserratregular';
+    src: url('../fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../fonts/montserrat-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: segui;
+    src: url(../fonts/seguisb.ttf);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 14px;
+}
+
+body {
+	margin: auto;
+	padding: 0;
+	width: 100vw;
+	overflow-x: hidden;
+	background: linear-gradient(to right, #51A89E, #1D3E74);
+	height: 100vh;
+	/* font-family: 'montserratregular'; */
+	font-family: segui;
+}
+
+/* Margins */
+
+.mt10 {
+	margin-top: 10px;
+}
+
+#agree {
+	position: relative;
+	top: 2px;
+}
+
+/* Background Color */
+
+.white-bg {
+	background: #ffffff;
+}
+
+.topbar {
+	padding: 10px 20px 10px 20px;
+	text-align: right
+}
+
+
+
+.login-text {
+	padding-top: 15px;
+	color: #4B4B4B;
+	font-size: 1.2rem;
+}
+
+.login-text a {
+	text-decoration: underline;
+	color: #46928D;
+	transition: color 300ms;
+}
+
+.login-text a:hover {
+	text-decoration: underline;
+	color: #E96429;
+}
+
+.login-form-container {
+	border-radius: 5px;
+	padding: 20px 30px 20px 30px;
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 430px;
+}
+
+.login-form-container h3 {
+	font-size: 1.6rem;
+	line-height: 3rem;
+	font-weight: bold;
+}
+
+.login-form-container div {
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.login-form-container form {
+	margin-top: 30px
+}
+
+.login-form-container .form-group label {
+	font-weight: bold;
+	font-size: 1rem;
+}
+
+.login-form-container .form-group input::placeholder {
+	color: #ACACAC;
+}
+
+.login-form-container .form-group select {
+	color: #ACACAC;
+}
+
+.login-form-container .form-group .form-control{
+	border: 1px solid #7D7D7D;
+}
+
+.mandatory {
+	color: #51A89F
+}
+
+.login-form-container button {
+	display: block;
+	width: 100%;
+	background: #51A89E;
+	color: white;
+	transition: background 300ms;
+	border: none;
+}
+
+.login-form-container button:hover {
+	background: #E96429;
+}
+
+.login-form-container a {
+	display: block;
+	color: #46928D;
+	text-decoration: none;
+	margin-top: 20px;
+	transition: color 300ms;
+}
+
+.login-form-container a:hover {
+	color: #E96429;
+}
+
+.login-form-container div a {
+	display: inline;
+}
+
+.relative {
+	position: relative;
+}
+
+.show-hide-pwd {
+	position: absolute;
+	right: 2%;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 1rem;
+	cursor: pointer;
+	z-index: 100;
+}
+
+@media only screen and (max-width: 478px) {
+	.login-form-container {
+		width: 90%;
+		margin-top: 20px;
+	}
+	
+	.topbar {
+		text-align: left;
+	}
+}

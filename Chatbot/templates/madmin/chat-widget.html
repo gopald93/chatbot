@@ -1,0 +1,529 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Chat App</title>
+      <link rel="stylesheet"  type="text/css" href="/static/css/all.css" />
+      <link rel="stylesheet"  type="text/css" href="/static/css/bootstrap.min.css" />
+      <link rel="stylesheet"  type="text/css" href="/static/css/bootstrap-colorpicker.css" >
+      <link rel="stylesheet"  type="text/css"  href="/static/css/post_login.css" />
+   </head>
+   <body>
+      <div class="sidemenu" id="menubar">
+         <div class="logo">
+            <img src="/static/admin/images/logo.svg"/>
+         </div>
+        <ul align="center">
+         <li>
+            <a href="{%  url 'madmin_dashboard' bname %}"  class="menuicons"><div class="border-right"></div>
+               <object
+                  type="image/svg+xml" data="/static/admin/images/dashboard-active.svg"
+                  class="nav-icon">
+               </object>
+               <div class="menu-names">Dashboard</div>
+            </a>
+         </li>
+         <li>  
+            <a href="#." class="menuicons"><div class="border-right"></div>
+               <object
+
+                  type="image/svg+xml" data="/static/admin/images/bot-active.svg"
+                  class="nav-icon">
+               </object>
+               <div class="menu-names">Bot Integration</div>
+            </a>
+         </li>    
+         <li>
+            <a href="{% url 'user_data' bname %}" class="menuicons"><div class="border-right"></div>
+               <object
+                  type="image/svg+xml" data="/static/admin/images/customers-active.svg"
+                  class="nav-icon">
+               </object>
+               <div class="menu-names">Users</div>
+            </a>
+         </li>
+
+         <li>
+            <a href="{% url 'teammates' bname %}" class="menuicons active"><div class="border-right"></div>
+               <object
+                  type="image/svg+xml" data="/static/admin/images/company-active.svg"
+                  class="nav-icon">
+               </object>
+               <div class="menu-names">Company</div>
+            </a>
+         </li>
+         
+         <li>
+            <a href="{%  url 'chat_widget' bname %}" class="menuicons"><div class="border-right"></div>
+               <object
+                  type="image/svg+xml" data="/static/admin/images/chat-widget-active.svg"
+                  class="nav-icon">
+               </object>
+               <div class="menu-names">Chat Widget</div>
+            </a>
+         </li>
+      </ul>
+         <div class="settings">
+            <a href="#.">
+            <object type="image/svg+xml" data="/static/admin/images/setting-active.svg"
+               class="nav-icon">
+            </object></a>
+         </div>
+      </div>
+      <div class="topbar">
+         <div class="container border-bottom-1px">
+            <div class="row">
+               <div class="col-lg-6 col-6">
+                  <h3 class="heading">Chat Widget</h3>
+               </div>
+               <div class="col-lg-6 col-6">
+                  <div class="row">
+                     <div class="col-lg-6 col-6"></div>
+                     <div class="col-lg-6 col-6">
+                        <div class="profile-icon">
+                           <img src="/static/admin/images/profile.svg" class="profile">
+                           <a href="{% url 'user_logout' %}" ><b>
+                           <img src="/static/admin/images/logout.svg" class="logout">
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="section">
+         <div class="container border-bottom-1px">
+            <div class="row">
+               <div class="tab-header">
+                  <a href="#." class="tab-name-heading active" data-attr="#widget-setting"><object
+                     type="image/svg+xml" data="/static/admin/images/company-details-active.svg"
+                     class="tab-icon">
+                  </object>Chat Customization</a>
+                  <a href="#." class="tab-name-heading" data-attr="#widget-configuration"><object
+                     type="image/svg+xml" data="/static/admin/images/chat-config-active.svg"
+                     class="tab-icon">
+                  </object>Chat Configuration</a>
+                  <a href="#." class="tab-name-heading" data-attr="#teammates" style="pointer-events: none;"><object
+                     type="image/svg+xml" data="/static/admin/images/welcome-msg-active.svg"
+                     class="tab-icon">
+                  </object>Welcome Message</a>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="tab-content current" id="widget-setting">
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <p class="">Change the theme of the chat widget</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-lg-6">
+                        <div class="box" id="chat-widget-setting">
+                           <div class="settings-icon"><i class="fas fa-pen"></i></div>
+                           <div class="text">
+                              <h5>Chat widget styling</h5>
+                              <h6 class="text-lightgrey">Customize how your chat widget looks like</h6>
+                           </div>
+                           <div class="settings-dropdown" id="settings-widget"><i class="fas fa-angle-down"></i></div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6">
+                        <div class="box" id="notification-sound-setting">
+                           <div class="settings-icon" align="center"><i class="fas fa-bell"></i></div>
+                           <div class="text">
+                              <h5>Change the notification sound</h5>
+                              <h6 class="text-lightgrey">New messages Notification sound if users move to different tab</h6>
+                           </div>
+                           <div class="settings-dropdown" id="settings-sound"><i class="fas fa-angle-down"></i></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- ######  Chat Configuration  ######  -->
+               <div class="tab-content" id="widget-configuration">
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <p class="">Chat widget configuration</p>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <div class="accordion-box">
+                           <div class="row">
+                              <div class="col-lg-1 col-12">
+                                 <div class="accordion-icon">
+                                    <img src="/static/admin/images/security.svg">
+                                 </div>
+                              </div>
+                              <div class="col-lg-11 col-12">
+                                 <div class="accordion-heading">
+                                    <form id="secure-chat-widget" method="post">
+                                       {% csrf_token %}
+                                       <div class="heading">Secure your chat widget</div>
+                                       <div class="subheading">User and messages history in chat widget</div>
+                                       <div class="accordion-content">
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div class="blue-box">
+                                             <i class="fas fa-info-circle"></i>
+                                             For logged-in users, all chat widget history will be retained all the time
+                                          </div>
+                                          <div class="heading">Validity of chat widget messages history for anonymous users:</div>
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div clss="radio-label">
+                                             <label class="custom-radio-acc">Remove chat widget history after a set period of time
+                                             {% if cf_hx_rml|lower == 'true' %}	
+                                             <input type="radio" value="True" checked="checked" name="cf_hx_rml">
+                                             {% else %}
+                                             <input type="radio" value="True" name="cf_hx_rml">
+                                             {% endif %}
+                                             <span class="checkmark"></span>
+                                             </label>
+                                          </div>
+                                          <div class="radio-desc">
+                                             <p>A new user session will be created and previous chat session with user info and messages will be cleared from the browser after a set period of time</p>
+                                             <p>Chat widget history will be removed after <input type="text" class="session-input" id="cf_rml_dys" name="cf_rml_dys" value="{{cf_rml_dys}}"> days &nbsp;&nbsp;&nbsp;
+                                                <input type="text" class="session-input" id="cf_rml_hrs" name="cf_rml_hrs" value="{{cf_rml_hrs}}"> hours &nbsp;&nbsp;&nbsp;
+                                                <input type="text" class="session-input" id="cf_rml_mnts" name="cf_rml_mnts" value="{{cf_rml_mnts}}"> minutes
+                                             </p>
+                                          </div>
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div clss="radio-label">
+                                             <label class="custom-radio-acc">Remove chat session history on page refresh
+                                             {% if cf_hx_rml|lower == 'false' %}
+                                             <input type="radio" value="False" checked="checked" name="cf_hx_rml">
+                                             {% else %}  
+                                             <input type="radio" value="False" name="cf_hx_rml">
+                                             {% endif %} 
+                                             <span class="checkmark"></span>
+                                             </label>
+                                          </div>
+                                          <div class="radio-desc">
+                                             <p>On page refresh, a new user session will be created and previous chat session with user info and messages will be cleared from the browser</p>
+                                          </div>
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div class="row">
+                                             <button type="submit" class="btn btn-dark" name="chat_hist_form">Save Changes</button>
+                                          </div>
+                                       </div>
+                                       <div class="accordion-icon fa-icon">
+                                          <i class="fas fa-plus collapse-expand"></i>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="accordion-box">
+                           <div class="row">
+                              <div class="col-lg-1 col-12">
+                                 <div class="accordion-icon">
+                                    <img src="/static/admin/images/time-delay.svg">
+                                 </div>
+                              </div>
+                              <div class="col-lg-11 col-12">
+                                 <div class="accordion-heading">
+                                    <form id="secure-chat-widget" method="post">
+                                       {% csrf_token %}
+                                       <div class="heading">Time-delay setting in bot replies</div>
+                                       <div class="subheading">Make your bot seem more natural by delaying the bot replies</div>
+                                       <div class="accordion-content">
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div class="radio-desc">
+                                             <p>Delay the bot replies by 
+                                                <input type="text" class="session-input" id="cf_rpls_dly" name="cf_rpls_dly" value="{{cf_rpls_dly}}"> Seconds &nbsp;&nbsp;&nbsp;
+                                             </p>
+                                          </div>
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div class="blue-box">
+                                             <i class="fas fa-info-circle"></i>
+                                             A typing indicator will be shown during the delay to make it seem like the bot is typing
+                                          </div>
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div class="row">
+                                             <button type="submit" class="btn btn-dark" name="chat_delayed_form">Save Changes</button>
+                                          </div>
+                                       </div>
+                                       <div class="accordion-icon fa-icon">
+                                          <i class="fas fa-plus collapse-expand"></i>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="accordion-box">
+                           <div class="row">
+                              <div class="col-lg-1 col-12">
+                                 <div class="accordion-icon">
+                                    <img src="/static/admin/images/disable-chat.svg">
+                                 </div>
+                              </div>
+                              <div class="col-lg-11 col-12">
+                                 <div class="accordion-heading">
+                                    <form id="secure-chat-widget" method="post">
+                                       {% csrf_token %}
+                                       <div class="heading">Disable your chat widget</div>
+                                       <div class="subheading">Hide the chat widget temporarily without removing the script from your website</div>
+                                       <div class="accordion-content">
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div class="radio-desc">
+                                             <p class="big-para">Disable the chat widget from the website &nbsp;&nbsp;
+                                                <span class="slider">
+                                                <input type="hidden" value="{{cf_dply_inditr}}" class="slider-inp" id="cf_dply_inditr"name="cf_dply_inditr">
+                                                <span class="round"></span>
+                                                </span>
+                                             </p>
+                                             <p class="no-padding">Note: This will stop the chat widget from appearing in all the places you have integrated it</p>
+                                          </div>
+                                          <div class="clearfix">&nbsp;</div>
+                                          <div class="row">
+                                             <button type="submit" class="btn btn-dark" name="chat_disp_form">Save Changes</button>
+                                          
+                                          </div>
+                                       </div>
+                                       <div class="accordion-icon fa-icon">
+                                          <i class="fas fa-plus collapse-expand"></i>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- ### Ends here ### -->
+            </div>
+         </div>
+      </div>
+      <!-- ###chat customization########## -->
+      <div class="modal fade chat-widget-popup" id="theme-setting" role="dialog">
+         <div class="modal-dialog modal-lg">
+            <div class="modal-content margin-auto p10">
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-lg-8">
+                        <div class="row">
+                           <div class="col-lg-2">
+                              <div class="settings-icon"><i class="fas fa-pen"></i></div>
+                           </div>
+                           <div class="col-lg-10">
+                              <h5 class="text-center-mob">Chat widget styling</h5>
+                              <h6 class="text-grey text-center-mob">Customize how your chat widget looks like</h6>
+                           </div>
+                        </div>
+                        <div class="clearfix">&nbsp;</div>
+                        <form method = "post" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           <div class="row">
+                              <div class="col-lg-2"></div>
+                              <div class="col-lg-10">
+                                 <p><strong>Color:</strong></p>
+                                 <div class="color-picker-box">
+                                    <div class="row">
+                                       <div class="col-lg-2 col-4">
+                                          <div id="color-picker"></div>
+                                       </div>
+                                       <div class="col-lg-10 col-8">
+                                          <input type="text" value="{{ct_clr}}" id="color-code" name="ct_clr">
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="clearfix">&nbsp;</div>
+                           <div class="row">
+                              <div class="col-lg-2"></div>
+                              <div class="col-lg-10">
+                                 <!-- <p><strong>Default Launcher icon:</strong> <input type="hidden" value={{dflt_icn.image_path.url}} id="selected-launch-icon_first" name="selected-launch-icon_first"></p> -->
+                                 <div class="launcher-icon-box">
+                                    <div class="row">
+                                       <input type="hidden" value={{dflt_icn}} id="default-chat-icon" name="dflt_icn">
+                                       {% for img_obj in default_img_model_obj%}
+                                       <a href="#." class="chat-launch-icon-type" id={{img_obj}} name={{img_obj}}>
+                                       <img  src="{{ img_obj.image_path.url}}" class="tab-icon align-middle" />
+                                       </a>
+                                       {% endfor %}
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="clearfix">&nbsp;</div>
+                           <div class="row">
+                              <div class="col-lg-2"></div>
+                              <div class="col-lg-10">
+                                 <p><strong>Custom Launcher icon:</strong></p>
+                                 <div class="upload-launcher-icon-box">
+                                    <div class="row">
+                                       <div class="col-lg-12 col-12">
+                                          <div class="custom-launch-icon-box">
+                                             <h6 class="text-grey uploadtext" id="file-names">
+                                                <input type="hidden" id="custom_icon_url" name="custom_icon_url" value={{ct_cstm_icn}} >
+                                                <input type="file" id="upload-custom-launch-icon" name="upload-custom-launch-icon" onchange='uploadFile(this)'>
+                                                <label for="file">	    
+                                                <span class="file-button">
+                                                <span id="file-name" class="file-box" > upload your custom icon</span>
+                                                <object type="image/svg+xml" data="/static/admin/images/upload.svg" class="tab-icon launch-icon"></object>
+                                                </span>
+                                                </label>
+                                             </h6>
+                                          </div>
+                                       </div>
+                                       <!-- <div class="col-lg-2 col-3"><a href="#." class="tab-name" id="upload-launch-icon"></a></div> -->
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <!-- <form> -->
+                           <div class="clearfix">&nbsp;</div>
+                           <div class="row">
+                              <div class="col-lg-2"></div>
+                              <div class="col-lg-10">
+                                 <p><strong>Widget position on the screen:</strong></p>
+                                 <label class="widget-position">
+                                 {% if ct_pos|lower == 'true' %}
+                                 <input type="radio" value="True" checked="checked" name="ct_pos">
+                                 {% else %}  
+                                 <input type="radio" value="True" name="ct_pos">
+                                 {% endif %}
+                                 <span class="radio-text">Left</span>
+                                 <span class="checkmark"></span>
+                                 </label>
+                                 <label class="widget-position">
+                                 {% if ct_pos|lower == 'false' %}
+                                 <input type="radio" value="False" checked="checked" name="ct_pos">
+                                 {% else %}  
+                                 <input type="radio" value="False" name="ct_pos">
+                                 {% endif %} 		
+                                 <span class="radio-text">Right</span>
+                                 <span class="checkmark"></span>
+                                 </label>
+                              </div>
+                           </div>
+                     </div>
+                     <div class="col-lg-4">
+                     <div class="relative top20">
+                     <div class="chat-widget-demo">
+                     <div class="chat-header">
+                     <div class="row">
+                     <div class="avatar-icon">
+                     <img src="/static/admin/images/bot.png" class="img-fluid">
+                     </div>
+                     <div class="agent-name">
+                     <div>DIVA</div>
+                     <div>Online</div>
+                     </div>
+                     <div class="close">
+                     <i class="fas fa-times"></i>
+                     </div>
+                     </div>
+                     </div>
+                     <div class="chat-body">
+                     <div class="received-msg">
+                     <span class="avatar-icon">
+                     <img src="/static/admin/images/bot.png" class="img-fluid">
+                     </span>
+                     <span class="received-msg-text">
+                     Hi, How may I help you?
+                     </span>
+                     </div>
+                     <div class="sent-msg">
+                     <span class="sent-msg-text">
+                     Can I change the delivery
+                     address of my order?
+                     </span>
+                     </div>
+                     <div class="received-msg">
+                     <span class="avatar-icon">
+                     <img src="/static/admin/images/bot.png" class="img-fluid">
+                     </span>
+                     <span class="received-msg-text">
+                     Sure I can help you with this. Can you give me your
+                     updated delivery address?
+                     </span>
+                     </div>
+                     <div class="sent-msg">
+                     <span class="sent-msg-text">
+                     Can I change the delivery
+                     address of my order?
+                     </span>
+                     </div>
+                     </div>
+                     </div>
+                     <div class="chat-launch-icon">
+                     <a href="#." id="launcher-chat-box">
+                     <img src={{dflt_icn.image_path.url}} class="tab-icon align-middle" />
+                     </a>
+                     </div>
+                     </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+               <button type="submit" class="btn btn-info" name="chat_widget_look" >Save Changes</button>
+               <button type="submit" class="btn no-bg border">Cancel</button>
+               </div>
+            </div>
+            </form>
+         </div>
+      </div>
+      <div class="modal fade chat-widget-popup" id="notification-setting" role="dialog">
+         <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content margin-auto p10">
+               <div class="modal-body">
+                  <div class="row">
+                     <div class="col-lg-12">
+                        <div class="row">
+                           <div class="col-lg-1">
+                              <div class="settings-icon"><i class="fas fa-bell"></i></div>
+                           </div>
+                           <div class="col-lg-10">
+                              <h5 class="text-center-mob">Change the notification sound</h5>
+                              <h6 class="text-grey text-center-mob">New messages Notification sound if users move to different tab</h6>
+                           </div>
+                        </div>
+                        <form method = "post" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           <div class="clearfix">&nbsp;</div>
+                           <div class="row">
+                              <div class="col-lg-1"></div>
+                              <div class="col-lg-10">
+                                 <div class="row">
+                                    <div class="col-lg-8">
+                                       <p>Choose a sound for the chat widget notifications</p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                       <select name="ct_ntn_snd" class="custom-select" value={{ct_ntn_snd}}>
+                                          <option value="Eventual">Eventual</option>
+                                          <option value="Subtle">Subtle</option>
+                                          <option value="Light">Light</option>
+                                          <option value="Open Ended">Open Ended</option>
+                                       </select>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="modal-footer">
+               <button type="submit" class="btn btn-info" name="chat_widget_sound" >Save Changes</button>
+               <button type="submit" class="btn no-bg border">Cancel</button>
+               </div>
+            </div>
+            </form>
+         </div>
+      </div>
+      <script type="text/javascript" src="/static/js/jquery3.5.1.min.js"></script>
+      <script type="text/javascript" src="/static/js/popper1.16.0.min.js"></script>
+      <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="/static/js/bootstrap-colorpicker.js"></script>
+      <script  type="text/javascript" src="/static/js/post_login.js"></script>
+   </body>
+</html>

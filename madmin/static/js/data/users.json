@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Hans",
+		"userid": "JsoaliXpkqnZSCIoyoOYnWFcMs24l027",
+		"last_seen": "9 October 2020",
+		"latest_conversation": "Closed - Joker",
+		"delete":"<i class=\"far fa-trash-alt\"></i>",
+		"block":"<i class=\"far fa-stop-circle\"></i>"
+    },
+     {
+        "name": "John",
+		"userid": "3qyCRQUb49mFxsCY4ZHFCt9N6P4ZKrHd",
+		"last_seen": "10 November 2020",
+		"latest_conversation": "Closed - Joker",
+		"delete":"<i class=\"far fa-trash-alt\"></i>",
+		"block":"<i class=\"far fa-stop-circle\"></i>"
+    },
+     {
+        "name": "Howard",
+		"userid": "7rJOrVqcGzB2QLWU0Aqjv3jAg7CIn9Y1",
+		"last_seen": "11 December 2020",
+		"latest_conversation": "Closed - Joker",
+		"delete":"<i class=\"far fa-trash-alt\"></i>",
+		"block":"<i class=\"far fa-stop-circle\"></i>"
+    },
+     {
+        "name": "Vangelis",
+		"userid": "lBRbnaUfXvoDwOZBV7YwsV4KEMMPwywN",
+		"last_seen": "24 December 2020",
+		"latest_conversation": "Closed - Joker",
+		"delete":"<i class=\"far fa-trash-alt\"></i>",
+		"block":"<i class=\"far fa-stop-circle\"></i>"
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "bot_name": "DIVA",
+		"intennse_name": "Default Fallback Intent",
+		"sentence": "Tell me a joke",
+		"category": "Intent",
+		"date": "27-sep-2020",
+		"conversation": 12345678
+    },
+    {
+        "bot_name": "DIVA",
+		"intennse_name": "diva.get",
+		"sentence": "Funny",
+		"category": "Intent",
+		"date": "26-sep-2020",
+		"conversation": 12345678
+    },
+     {
+        "bot_name": "JOKER",
+		"intennse_name": "joker.get",
+		"sentence": "More Funny",
+		"category": "Intent",
+		"date": "25-sep-2020",
+		"conversation": 12345678
+    }
+]

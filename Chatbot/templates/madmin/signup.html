@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chat App</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/static/css/pre_login.css" />
+</head>
+<body>
+	<div class="topbar bg-white">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" align="left">
+					<a href="http://modefin.com/" target="clank">
+						<img src="/static/admin/images/logo.png" />
+					</a>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div class="login-text">
+						Already have an account? <a href="{% url 'user_login' %}">Sign In</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<div class="login-form-container bg-white">
+			<h3>Create your account</h3>
+			<div>You will receive your Bank Id when you create your account on
+			ModeFinServer</div>
+			{% for message in messages %}
+					<p id="messages" style="color: red;">{{message}}</p>
+			{% endfor %}
+			<form method="POST" action="">
+				{% csrf_token %}
+				<div class="form-group">
+				    <label for="username">Full Name<span class="mandatory">*</span></label>
+				    <input type="text" class="form-control" placeholder="Enter Your Name" name="full_name" id="full_name" required>
+				  </div>
+				  <div class="form-group">
+				    <label for="username">User Name<span class="mandatory">*</span></label>
+				    <input type="text" class="form-control" placeholder="Enter Your Name" name="username" id="username" required>
+				  </div>
+				   <div class="form-group">
+				    <label for="email">Email Address<span class="mandatory">*</span></label>
+				    <input type="email" class="form-control" placeholder="Enter Your Email Address" name="email" id="email" required>
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="password">Password<span class="mandatory">*</span></label>
+				    <input type="password" class="form-control" placeholder="Enter Your Password" name="password" id="password" required>
+				  </div>
+				  <button type="submit" class="btn btn-primary">Sign Up</button>
+				</form>
+				
+				<div><br>By signing up you agree to the <a href="#.">Terms of Service</a> and <a href="#.">Privacy policy</a></div>
+		</div>
+		<script  type="text/javascript" src="/static/js/jquery3.5.1.min.js" ></script>
+		<script  type="text/javascript" src="/static/js/popper1.16.0.min.js" ></script>
+		<script   type="text/javascript" src="/static/js/bootstrap.min.js" ></script>
+</body>
+</html>

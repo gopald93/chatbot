@@ -1,0 +1,20 @@
+[
+    {
+        "agent": "Tiger Nixon",
+		"incoming": 0,
+		"resolved": 0,
+		"open": 0,
+		"first_response_pending": 0,
+		"first_response_time": "-",
+		"avg_resolution_time": "-"
+    },
+    {
+        "agent": "Bill Carson",
+		"incoming": 0,
+		"resolved": 0,
+		"open": 0,
+		"first_response_pending": 0,
+		"first_response_time": "-",
+		"avg_resolution_time": "-"
+    }
+]
